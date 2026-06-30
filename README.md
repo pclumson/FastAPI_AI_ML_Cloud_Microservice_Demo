@@ -61,3 +61,41 @@ uvicorn app.main:app --reload
 docker-compose up --build
 
 # Access Swagger docs at http://localhost:8000/docs
+
+
+Running Tests
+
+pytest tests/ -v --cov=app --cov-report=html
+open htmlcov/index.html
+
+🔒 Security Considerations
+
+    Non-root container user (aligns with STIG hardening guidance)
+    Secrets managed via environment variables (.env excluded from Git)
+    Dependency scanning via safety check recommended in CI
+
+☁️ Deployment Patterns
+AWS EKS Path
+
+eksctl create cluster --name demo-cluster
+helm install cloud-api ./charts/cloud-api
+kubectl get pods
+
+Azure AKS Path
+
+az aks create --resource-group <rg> --name <cluster-name>
+az aks get-credentials --resource-group <rg> --name <cluster-name>
+kubectl apply -f k8s/deployment.yaml
+
+
+📈 Metrics Endpoints
+
+    /metrics — Prometheus-compatible metrics (uncomment in main.py)
+    /ready — Readiness probe for K8s
+    /live — Liveness probe for K8s
+
+👤 Author
+
+Prince Clumson-Eklu --
+Full Stack Engineer specializing in cloud-native architecture 
+GitHub: github.com/pclumson LinkedIn: linkedin.com/in/prince-clumson-eklu-92a6b476
