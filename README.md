@@ -44,7 +44,19 @@ cd FastAPI_AI_ML_Cloud_Microservice_Demo
 
 # Run locally with hot-reload
 uvicorn app.main:app --reload
+```
 
+## 5️⃣ Bonus Additions TODO(If Time Permits)
+
+| Enhancement | Effort | Impact |
+|-------------|--------|--------|
+| Add `/metrics` endpoint with prometheus_client | 30 min | Shows observability depth |
+| Write Terraform scripts for EKS module | 2 hrs | Direct IaC demonstration |
+| Integrate OWASP ZAP security scan step | 45 min | Compliance-minded signal |
+| Add rate limiting middleware | 30 min | Production-hardened pattern |
+| Document Kubernetes manifests (deployment, service, ingress) | 1 hr | Ops-readiness proof |
+
+---
 # Or use Docker Compose
 docker-compose up --build
 
